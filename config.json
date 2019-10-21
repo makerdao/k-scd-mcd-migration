@@ -1,0 +1,17 @@
+{
+  "name": "k-scd-mcd-mirgation",
+  "src": {
+    "specification": "src/migration.md",
+    "smt_prelude": "src/prelude.smt2.md",
+    "rules": [
+      "src/storage.k.md",
+      "src/lemmas.k.md"
+    ]
+  },
+  "implementations": {
+    "ScdMcdMigration": {
+      "src": "src/ScdMcdMigration.sol"
+    }
+  },
+  "dapp_root": "scd-mcd-mirgation"
+}

@@ -1,0 +1,3 @@
+[submodule "scd-mcd-migration"]
+	path = scd-mcd-migration
+	url = https://github.com/makerdao/scd-mcd-migration
