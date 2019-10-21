@@ -11,7 +11,13 @@
   "implementations": {
     "ScdMcdMigration": {
       "src": "src/ScdMcdMigration.sol"
+    },
+    "GemJoin": {
+      "src": "lib/dss-cdp-manager/lib/dss-deploy/lib/dss/src/join.sol"
+    },
+    "DSToken": {
+      "src": "lib/dss-cdp-manager/lib/dss-deploy/lib/ds-token/src/token.sol"
     }
   },
-  "dapp_root": "scd-mcd-mirgation"
+  "dapp_root": "scd-mcd-migration"
 }
