@@ -16,7 +16,7 @@
       "src": "lib/dss-cdp-manager/lib/dss-deploy/lib/dss/src/join.sol"
     },
     "DSToken": {
-      "src": "lib/dss-cdp-manager/lib/dss-deploy/lib/ds-token/src/token.sol"
+      "src": "lib/sai/lib/ds-token/src/token.sol"
     }
   },
   "dapp_root": "scd-mcd-migration"
