@@ -12,6 +12,9 @@
     "ScdMcdMigration": {
       "src": "src/ScdMcdMigration.sol"
     },
+    "Vat": {
+      "src": "lib/dss-cdp-manager/lib/dss-deploy/lib/dss/src/vat.sol"
+    },
     "GemJoin": {
       "src": "lib/dss-cdp-manager/lib/dss-deploy/lib/dss/src/join.sol"
     },

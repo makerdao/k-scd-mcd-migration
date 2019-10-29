@@ -1,3 +1,51 @@
+Vat
+```act
+behaviour addui of Vat
+interface add(uint256 x, int256 y) internal
+
+stack
+
+   #unsigned(y) : x : JMPTO : WS => JMPTO : x + y : WS
+
+iff in range uint256
+
+   x + y
+
+if
+
+   #sizeWordStack(WS) <= 1015
+```
+
+Vat slip
+```act
+behaviour slip of Vat
+interface slip(bytes32 ilk, address usr, int256 wad)
+
+for all
+
+    May : uint256
+    Gem : uint256
+
+storage
+
+    wards[CALLER_ID] |-> May
+    gem[ilk][usr]    |-> Gem => Gem + wad
+
+iff
+
+    // act: caller is `. ? : not` authorised
+    May == 1
+    VCallValue == 0
+
+iff in range uint256
+
+    Gem + wad
+
+calls
+
+    Vat.addui
+```
+
 DSToken transferFrom
 ```act
 behaviour transferFrom of DSToken
