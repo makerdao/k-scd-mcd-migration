@@ -121,3 +121,24 @@ rule #DSToken.symbol => 5
 syntax Int ::= "#DSToken.decimals" [function]
 rule #DSToken.decimals => 6
 ```
+
+GemJoin
+```k
+syntax Int ::= "#GemJoin.vat" [function]
+// -------------------------------------
+// doc: `Vat` that this adapter points to
+// act:
+rule #GemJoin.vat => 0
+
+syntax Int ::= "#GemJoin.ilk" [function]
+// -------------------------------------
+// doc: collateral type of this adapter
+// act:
+rule #GemJoin.ilk => 1
+
+syntax Int ::= "#GemJoin.gem" [function]
+// -------------------------------------
+// doc: underlying token of this adapter
+// act:
+rule #GemJoin.gem => 2
+```

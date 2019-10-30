@@ -78,3 +78,64 @@ if
 
 returns 1
 ```
+
+GemJoin
+```act
+behaviour join of GemJoin
+interface join(address usr, uint256 wad)
+
+for all
+
+    Vat         : address Vat
+    Ilk         : bytes32
+    DSToken     : address DSToken
+    May         : uint256
+    Vat_bal     : uint256
+    Bal_usr     : uint256
+    Bal_adapter : uint256
+    Owner       : address
+    Stopped     : bool
+    Allowed     : uint256
+
+storage
+
+    vat |-> Vat
+    ilk |-> Ilk
+    gem |-> DSToken
+
+storage Vat
+
+    wards[ACCT_ID]      |-> May
+    gem[Ilk][usr]       |-> Vat_bal => Vat_bal + wad
+
+storage DSToken
+
+    allowance[CALLER_ID][ACCT_ID] |-> Allowed => #if Allowed == maxUInt256 #then Allowed #else Allowed - wad #fi
+    balances[CALLER_ID] |-> Bal_usr     => Bal_usr     - wad
+    balances[ACCT_ID]   |-> Bal_adapter => Bal_adapter + wad
+    owner_stopped       |-> #WordPackAddrUInt8(Owner, Stopped)
+
+iff
+
+    VCallDepth < 1024
+    VCallValue == 0
+    wad <= Allowed
+    Stopped == 0
+    May == 1
+    wad <= maxSInt256
+
+iff in range uint256
+
+    Vat_bal + wad
+    Bal_usr     - wad
+    Bal_adapter + wad
+
+if
+
+    CALLER_ID =/= ACCT_ID
+
+calls
+
+  Vat.slip
+  DSToken.transferFrom
+```
